@@ -26,7 +26,7 @@ PROCE MAIN(uPar)
    // 11/09/2023
    IF DOW(dFecha)=3 .AND. DOW(oDp:dFecha)=2 .AND. !ISSQLFIND("DPHISMON",cWhere)
 
-      nValor:=SQLGET("DPHISMON","HMN_VALOR","HMN_CODIGO"+GetWhere("=",oDp:cUsdBcv  )+" AND HMN_FECHA"+GetWhere("=",oDp:dFecha))
+      nValor:=SQLGET("DPHISMON","HMN_VALOR","HMN_CODIGO"+GetWhere("=",oDp:cUsdBcv  )+" AND HMN_FECHA"+GetWhere("=",dFecha))
  
       EJECUTAR("CREATERECORD","DPHISMON",{"HMN_CODIGO","HMN_FECHA"  ,"HMN_HORA","HMN_VALOR"},;
                                          {oDp:cUsdBcv ,oDp:dFecha   ,"00:00"   ,nValor     },NIL,.T.,cWhere)
@@ -111,4 +111,3 @@ PROCE MAIN(uPar)
 
 RETURN .T.
 // EOF
-
